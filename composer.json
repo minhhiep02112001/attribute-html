@@ -1,6 +1,6 @@
 {
-    "name": "segmentsents/developer",
-    "description": "Lua segments",
+    "name": "attribute_html/developer",
+    "description": "attribute_html/developer",
     "autoload": {
         "psr-4": {
             "Segmentsents\\Developer\\": "src/"
