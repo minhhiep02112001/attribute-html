@@ -1,0 +1,25 @@
+{
+    "name": "segmentsents/developer",
+    "description": "Lua segments",
+    "autoload": {
+        "psr-4": {
+            "Segmentsents\\Developer\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Segmentsents\\Developer\\SegmentManagerServiceProvider"
+            ] 
+        }
+    },
+    "authors": [
+        {
+            "name": "hiepcm"
+        }
+    ],
+    "require": {
+        "8xprovn/widgets": "dev-main" 
+    }
+}
+ 
