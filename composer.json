@@ -17,9 +17,6 @@
         {
             "name": "hiepcm"
         }
-    ],
-    "require": {
-        "8xprovn/widgets": "dev-main" 
-    }
+    ] 
 }
  
