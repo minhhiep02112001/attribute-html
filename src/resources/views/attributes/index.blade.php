@@ -55,8 +55,8 @@
                                         <i class="icon-menu9"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="load_not_ajax dropdown-item" href="{{ route('hr.attributes.show', $row['_id']) }}">Xem</a>
-                                        <a class="load_not_ajax dropdown-item" href="{{ route('hr.attributes.edit', $row['_id']) }}">Sửa</a>
+                                        <a class="call_ajax_modal dropdown-item" href="{{ route('hr.attributes.show', $row['_id']) }}">Xem</a>
+                                        <a class="call_ajax_modal dropdown-item" href="{{ route('hr.attributes.edit', $row['_id']) }}">Sửa</a>
                                         <a class="quick-action-confirm dropdown-item" content="Bạn có chắc muốn xóa không" 
                                            action="{{ route('hr.attributes.destroy', $row['_id']) }}" method="delete" href="#">Xóa</a>
                                     </div>                                    
