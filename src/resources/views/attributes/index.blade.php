@@ -10,6 +10,10 @@
         <div class="card">
             <div class="card-header header-elements-inline">
                 <h5 class="card-title">Danh sách thuộc tính html</h5>
+                <div class="header-elements ">
+                    <a class="call_ajax_modal btn btn-teal" target="_blank"
+                        href="{{ route('hr.attributes.create') }}">Tạo mới</a>
+                </div>
             </div>
             <table class="table datatable-fixed-both" width="100%">
                 <thead id="checkbox_all">
@@ -51,15 +55,11 @@
                                         <i class="icon-menu9"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="load_not_ajax dropdown-item"
-                                            href="{{ route(\Config::get('route.as') . 'attributes.show', $row['_id']) }}">Xem</a>
-                                        <a class="load_not_ajax dropdown-item"
-                                            href="{{ route(\Config::get('route.as') . 'attributes.edit', $row['_id']) }}">Sửa</a>
-                                        <a class="quick-action-confirm dropdown-item"
-                                            content="Bạn có chắc muốn xóa không"
-                                            action="{{ route(\Config::get('route.as') . 'attributes.destroy', $row['_id']) }}"
-                                            method="delete" href="#">Xóa</a>
-                                    </div>
+                                        <a class="load_not_ajax dropdown-item" href="{{ route('hr.attributes.show', $row['_id']) }}">Xem</a>
+                                        <a class="load_not_ajax dropdown-item" href="{{ route('hr.attributes.edit', $row['_id']) }}">Sửa</a>
+                                        <a class="quick-action-confirm dropdown-item" content="Bạn có chắc muốn xóa không" 
+                                           action="{{ route('hr.attributes.destroy', $row['_id']) }}" method="delete" href="#">Xóa</a>
+                                    </div>                                    
                                 </div>
                             </td>
                         </tr>
@@ -73,5 +73,5 @@
     </div>
 @stop
 @section('left-slidebar')
-    @include('attributes::attributes.filter')
+    @include('attributes::attributes.section.filter')
 @endsection
