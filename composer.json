@@ -3,19 +3,19 @@
     "description": "attribute_html/developer",
     "autoload": {
         "psr-4": {
-            "Segmentsents\\Developer\\": "src/"
+            "Attributes\\Developer\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Segmentsents\\Developer\\SegmentManagerServiceProvider"
+                "Attributes\\Developer\\AttributeServiceProvider"
             ] 
         }
     },
     "authors": [
         {
-            "name": "hiepcm"
+            "name": "tiennx"
         }
     ] 
 }
