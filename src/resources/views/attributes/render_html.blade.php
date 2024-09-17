@@ -16,7 +16,7 @@
                 @endif
 
                 @if (!empty($attribute['help_text']))
-                    <small class="form-text text-muted">{{ $attribute['help_text'] }}</small>
+                    <small class="text-danger">{{ $attribute['help_text'] }}</small>
                 @endif
             @elseif ($attribute['option_value'] == 'select')
                 <select name="{{ $attribute['name'] ?? '' }}" id="{{ $attribute['id'] ?? '' }}"
@@ -31,7 +31,7 @@
                 </select>
 
                 @if (!empty($attribute['help_text']))
-                    <small class="form-text text-muted">{{ $attribute['help_text'] }}</small>
+                    <small class="text-danger">{{ $attribute['help_text'] }}</small>
                 @endif
             @elseif ($attribute['option_value'] == 'checkbox')
                 <input type="checkbox" id="{{ $attribute['id'] ?? '' }}" name="{{ $attribute['name'] ?? '' }}"
@@ -40,7 +40,7 @@
                     @if ($attribute['is_required']) required @endif>
 
                 @if (!empty($attribute['help_text']))
-                    <small class="form-text text-muted">{{ $attribute['help_text'] }}</small>
+                    <small class="text-danger">{{ $attribute['help_text'] }}</small>
                 @endif
             @endif
         </div>
