@@ -48,7 +48,7 @@ class AttributeController extends Controller
     public function create(Request $request)
     {
         $data = [
-            'action' => route(\Config::get('route.as').'attributes.store'),
+            'action' => route('hr.attributes.store'),
             'method' => 'POST',
         ];
         return view('attributes::attributes.form', $data);
@@ -120,7 +120,7 @@ class AttributeController extends Controller
         }
         $data = [
             'row' => $row,
-            'action' => route(\Config::get('route.as').'attributes.update',[$id]),
+            'action' => route('hr.attributes.update',[$id]),
             'method' => 'PUT',
         ];
 
