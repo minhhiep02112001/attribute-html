@@ -51,7 +51,14 @@
                                         <i class="icon-menu9"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        {!! menuAttribute($row) !!}
+                                        <a class="load_not_ajax dropdown-item"
+                                            href="{{ route(\Config::get('route.as') . 'attributes.show', $row['_id']) }}">Xem</a>
+                                        <a class="load_not_ajax dropdown-item"
+                                            href="{{ route(\Config::get('route.as') . 'attributes.edit', $row['_id']) }}">Sửa</a>
+                                        <a class="quick-action-confirm dropdown-item"
+                                            content="Bạn có chắc muốn xóa không"
+                                            action="{{ route(\Config::get('route.as') . 'attributes.destroy', $row['_id']) }}"
+                                            method="delete" href="#">Xóa</a>
                                     </div>
                                 </div>
                             </td>
