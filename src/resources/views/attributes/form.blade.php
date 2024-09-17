@@ -52,11 +52,11 @@
                                         style="color: red;">*</span></label>
                                 <div class="col-lg-9">
                                     <select name="type" required class="form-control select2_single">
-                                        <option value="input"
+                                        <option value="text"
                                             {{ !empty($row['type']) && $row['type'] == 'text' ? 'selected' : '' }}>
                                             Text
                                         </option>
-                                        <option value="select"
+                                        <option value="file"
                                             {{ !empty($row['type']) && $row['type'] == 'file' ? 'selected' : '' }}>
                                             File
                                         </option>
