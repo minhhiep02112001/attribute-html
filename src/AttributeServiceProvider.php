@@ -24,7 +24,7 @@ class AttributeServiceProvider extends ServiceProvider
          
         if (config('attribute.load_views', true)) {
             // Đăng ký đường dẫn view với Laravel
-            $this->loadViewsFrom(__DIR__ . '/resources/views/attributes', 'attributes'); 
+            $this->loadViewsFrom(__DIR__ . '/resources/views', 'attributes'); 
         }
     }
 }

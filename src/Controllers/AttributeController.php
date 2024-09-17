@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class AttributeController extends Controller
 {
+    protected $onlyRequest = ['title', 'option_value', 'name', 'type', 'placeholder', 'class', 'value', 'data_field', 'id', 'data_channel', 'data_type', 'data_value', 'arr_data', 'module', 'data_get', 'data_module', 'help_text', 'is_required', 'is_multiple'];
     /**
      * Display a listing of the resource.
      *
@@ -102,7 +103,7 @@ class AttributeController extends Controller
             'row' => $row,
         ];
 
-        return view('attributes::attributes.view', $data);
+        return view('attributes::attributes.show', $data);
     }
 
     /**
