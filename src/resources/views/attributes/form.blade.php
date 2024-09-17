@@ -129,6 +129,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-lg-3 col-form-label">Data field</label>
+                                <div class="col-lg-9">
+                                    <input name="data_field" type="text" placeholder="attachment[]..."
+                                        class="form-control" value="{{ $row['data_field'] ?? '' }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-lg-3 col-form-label">Data module</label>
                                 <div class="col-lg-9">
                                     <input name="data_module" type="text" placeholder="employee, city..."
