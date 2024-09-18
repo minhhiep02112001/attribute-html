@@ -21,23 +21,30 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label">Option value <span
+                                <label class="col-lg-3 col-form-label">Option field <span
                                         style="color: red;">*</span></label>
                                 <div class="col-lg-9">
-                                    <select name="option_value" required class="form-control select2_single">
+                                    <select id="option_field" name="option_field" required
+                                        class="form-control select2_single">
                                         <option value="input"
-                                            {{ !empty($row['option_value']) && $row['option_value'] == 'input' ? 'selected' : '' }}>
+                                            {{ !empty($row['option_field']) && $row['option_field'] == 'input' ? 'selected' : '' }}>
                                             Input
                                         </option>
                                         <option value="select"
-                                            {{ !empty($row['option_value']) && $row['option_value'] == 'select' ? 'selected' : '' }}>
+                                            {{ !empty($row['option_field']) && $row['option_field'] == 'select' ? 'selected' : '' }}>
                                             Select
                                         </option>
                                         <option value="checkbox"
-                                            {{ !empty($row['option_value']) && $row['option_value'] == 'checkbox' ? 'selected' : '' }}>
+                                            {{ !empty($row['option_field']) && $row['option_field'] == 'checkbox' ? 'selected' : '' }}>
                                             Checkbox
                                         </option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="form-group row" id="option_value">
+                                <label class="col-lg-3 col-form-label">Giá trị <span style="color: red;">*</span></label>
+                                <div class="col-lg-9">
+                                    <textarea name="option_value" class="form-control" rows="3">{{ $row['option_value'] ?? '' }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -56,9 +63,21 @@
                                             {{ !empty($row['type']) && $row['type'] == 'text' ? 'selected' : '' }}>
                                             Text
                                         </option>
+                                        <option value="select"
+                                            {{ !empty($row['type']) && $row['type'] == 'select' ? 'selected' : '' }}>
+                                            Select
+                                        </option>
+                                        <option value="date"
+                                            {{ !empty($row['type']) && $row['type'] == 'date' ? 'selected' : '' }}>
+                                            Date
+                                        </option>
                                         <option value="file"
                                             {{ !empty($row['type']) && $row['type'] == 'file' ? 'selected' : '' }}>
                                             File
+                                        </option>
+                                        <option value="checkbox"
+                                            {{ !empty($row['type']) && $row['type'] == 'checkbox' ? 'selected' : '' }}>
+                                            Checkbox
                                         </option>
                                     </select>
                                 </div>
@@ -78,17 +97,10 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label">Id</label>
+                                <label class="col-lg-3 col-form-label">ID option</label>
                                 <div class="col-lg-9">
                                     <input name="id" type="text" placeholder="id" class="form-control"
                                         value="{{ $row['id'] ?? '' }}">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label">Placeholder</label>
-                                <div class="col-lg-9">
-                                    <input name="placeholder" type="text" placeholder="Nhập số điện thoại nơi làm việc"
-                                        class="form-control" value="{{ $row['placeholder'] ?? '' }}">
                                 </div>
                             </div>
                         </div>
@@ -100,27 +112,18 @@
                                         <?php echo isset($row['is_required']) && $row['is_required'] == '1' ? 'checked' : ''; ?>>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label">Multiple</label>
-                                <div class="col-lg-9">
-                                    <input type="checkbox" name="is_multiple" value="1" class="form-control-sm"
-                                        <?php echo isset($row['is_multiple']) && $row['is_multiple'] == '1' ? 'checked' : ''; ?>>
+                            @if (empty($row))
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Multiple</label>
+                                    <div class="col-lg-9">
+                                        <input type="checkbox" name="is_multiple" value="1" class="form-control-sm"
+                                            <?php echo isset($row['is_multiple']) && $row['is_multiple'] == '1' ? 'checked' : ''; ?>>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label">Data channel</label>
-                                <div class="col-lg-9">
-                                    <input name="data_channel" type="text" placeholder="env('STATIC_CHANNEL')"
-                                        class="form-control" value="{{ $row['data_channel'] ?? '' }}">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label">Data type</label>
-                                <div class="col-lg-9">
-                                    <input name="data_type" type="text" placeholder="file" class="form-control"
-                                        value="{{ $row['data_type'] ?? '' }}">
-                                </div>
-                            </div>
+                            @else
+                                <input type="hidden" name="is_multiple" value="{{ $row['is_multiple'] ?? 0 }}"
+                                    class="form-control-sm">
+                            @endif
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label">Data get</label>
                                 <div class="col-lg-9">
@@ -129,17 +132,18 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label">Data field</label>
-                                <div class="col-lg-9">
-                                    <input name="data_field" type="text" placeholder="attachment[]..."
-                                        class="form-control" value="{{ $row['data_field'] ?? '' }}">
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <label class="col-lg-3 col-form-label">Data module</label>
                                 <div class="col-lg-9">
                                     <input name="data_module" type="text" placeholder="employee, city..."
                                         class="form-control" value="{{ $row['data_module'] ?? '' }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label">Placeholder</label>
+                                <div class="col-lg-9">
+                                    <input name="placeholder" type="text"
+                                        placeholder="Nhập số điện thoại nơi làm việc" class="form-control"
+                                        value="{{ $row['placeholder'] ?? '' }}">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -155,4 +159,20 @@
             </form>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            function toggleTextarea() {
+                var selectedValue = $('#option_field').val();
+                if (selectedValue === 'select' || selectedValue === 'checkbox') {
+                    $('#option_value').show();
+                } else {
+                    $('#option_value').hide();
+                }
+            }
+
+            toggleTextarea();
+
+            $('#option_field').on('change', toggleTextarea);
+        });
+    </script>
 @stop

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class AttributeController extends Controller
 {
-    protected $onlyRequest = ['title', 'option_value', 'name', 'type', 'placeholder', 'class', 'value', 'data_field', 'id', 'data_channel', 'data_type', 'data_value', 'arr_data', 'module', 'data_get', 'data_module', 'help_text', 'is_required', 'is_multiple'];
+    protected $onlyRequest = ['title', 'option_value', 'option_field', 'name', 'type', 'placeholder', 'class', 'value', 'id', 'data_value', 'arr_data', 'module', 'data_get', 'data_module', 'help_text', 'is_required', 'is_multiple'];
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +48,7 @@ class AttributeController extends Controller
     public function create(Request $request)
     {
         $data = [
-            'action' => route('hr.attributes.store'),
+            'action' => route('attributes.store'),
             'method' => 'POST',
         ];
         return view('attributes::attributes.form', $data);
@@ -66,7 +66,7 @@ class AttributeController extends Controller
         $input_data = $request->only($this->onlyRequest);
         $validator = \Validator::make($input_data, [
             'title' => 'required',
-            'option_value' => 'required',
+            'option_field' => 'required',
             'name' => 'required',
             'type' => 'required',
             'module' => 'required',
@@ -120,7 +120,7 @@ class AttributeController extends Controller
         }
         $data = [
             'row' => $row,
-            'action' => route('hr.attributes.update',[$id]),
+            'action' => route('attributes.update',[$id]),
             'method' => 'PUT',
         ];
 
@@ -139,7 +139,7 @@ class AttributeController extends Controller
         $input_data = $request->only($this->onlyRequest);
         $validator = \Validator::make($input_data, [
             'title' => 'required',
-            'option_value' => 'required',
+            'option_field' => 'required',
             'name' => 'required',
             'type' => 'required',
             'module' => 'required',

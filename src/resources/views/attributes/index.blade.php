@@ -12,7 +12,7 @@
                 <h5 class="card-title">Danh sách thuộc tính html</h5>
                 <div class="header-elements ">
                     <a class="call_ajax_modal btn btn-teal" target="_blank"
-                        href="{{ route('hr.attributes.create') }}">Tạo mới</a>
+                        href="{{ route('attributes.create') }}">Tạo mới</a>
                 </div>
             </div>
             <table class="table datatable-fixed-both" width="100%">
@@ -20,7 +20,7 @@
                     <tr>
                         <th class="align-left">STT</th>
                         <th class="align-left">Tiêu đề</th>
-                        <th class="align-left">Option value</th>
+                        <th class="align-left">Option field</th>
                         <th class="align-left">Tên trường</th>
                         <th class="align-left">Loại trường</th>
                         <th class="align-left">Module</th>
@@ -38,7 +38,7 @@
                                 {{ $row['title'] ?? '' }}
                             </td>
                             <td>
-                                {{ $row['option_value'] ?? '' }}
+                                {{ $row['option_field'] ?? '' }}
                             </td>
                             <td>
                                 {{ $row['name'] ?? '' }}
@@ -55,10 +55,10 @@
                                         <i class="icon-menu9"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="call_ajax_modal dropdown-item" href="{{ route('hr.attributes.show', $row['_id']) }}">Xem</a>
-                                        <a class="call_ajax_modal dropdown-item" href="{{ route('hr.attributes.edit', $row['_id']) }}">Sửa</a>
+                                        <a class="call_ajax_modal dropdown-item" href="{{ route('attributes.show', $row['_id']) }}">Xem</a>
+                                        <a class="call_ajax_modal dropdown-item" href="{{ route('attributes.edit', $row['_id']) }}">Sửa</a>
                                         <a class="quick-action-confirm dropdown-item" content="Bạn có chắc muốn xóa không" 
-                                           action="{{ route('hr.attributes.destroy', $row['_id']) }}" method="delete" href="#">Xóa</a>
+                                           action="{{ route('attributes.destroy', $row['_id']) }}" method="delete" href="#">Xóa</a>
                                     </div>                                    
                                 </div>
                             </td>
