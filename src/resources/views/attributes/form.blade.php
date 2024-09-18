@@ -21,7 +21,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label">Option field <span
+                                <label class="col-lg-3 col-form-label">Loại trường <span
                                         style="color: red;">*</span></label>
                                 <div class="col-lg-9">
                                     <select id="option_field" name="option_field" required
@@ -38,6 +38,10 @@
                                             {{ !empty($row['option_field']) && $row['option_field'] == 'checkbox' ? 'selected' : '' }}>
                                             Checkbox
                                         </option>
+                                        <option value="textarea"
+                                            {{ !empty($row['option_field']) && $row['option_field'] == 'textarea' ? 'selected' : '' }}>
+                                            Textarea
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -52,10 +56,11 @@
                                 <div class="col-lg-9">
                                     <input name="name" required type="text" placeholder="Nhập tên trường"
                                         class="form-control" value="{{ $row['name'] ?? '' }}">
+                                    <span class="text-danger">Tên trường cách nhau bởi dấu "_"</span>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label">Loại trường <span
+                                <label class="col-lg-3 col-form-label">Loại giá trị <span
                                         style="color: red;">*</span></label>
                                 <div class="col-lg-9">
                                     <select name="type" required class="form-control select2_single">
@@ -78,6 +83,10 @@
                                         <option value="checkbox"
                                             {{ !empty($row['type']) && $row['type'] == 'checkbox' ? 'selected' : '' }}>
                                             Checkbox
+                                        </option>
+                                        <option value="textarea"
+                                            {{ !empty($row['type']) && $row['type'] == 'textarea' ? 'selected' : '' }}>
+                                            Textarea
                                         </option>
                                     </select>
                                 </div>

@@ -132,6 +132,14 @@
                     @endif
                 @break
 
+                @case('textarea')
+                    <textarea name="{{ $name }}" class="{{ $class }}" rows="3">{{ $row[$name] ?? '' }}</textarea>
+
+                    @if (!empty($helpText))
+                        <small class="text-danger">{{ $helpText }}</small>
+                    @endif
+                @break
+
                 @default
                     <span>Unknown field type</span>
             @endswitch

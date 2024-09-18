@@ -21,7 +21,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Option field:</th>
+                                <th>Loại trường:</th>
                                 <td>
                                     {{ $row['option_field'] ?? '' }}
                                     @if (!empty($row['is_multiple']))
@@ -30,17 +30,39 @@
                                 </td>
                             </tr>
                             <tr>
-                               <th>Option value:</th>
-                               <td>
-                                   {{ $row['option_value'] ?? '' }}
-                               </td>
-                           </tr>
+                                <th>Giá trị:</th>
+                                <td>
+                                    @php
+                                        $optionValue = $row['option_value'] ?? '';
+                                    @endphp
+
+                                    @if (strpos($optionValue, "\r\n") !== false)
+                                        @php
+                                            $options = explode("\r\n", $optionValue);
+                                        @endphp
+
+                                        @foreach ($options as $index => $option)
+                                            @php
+                                                [$key, $value] = explode(':', $option);
+                                            @endphp
+
+                                            <strong>{{ $key }}</strong>: {{ $value }}
+
+                                            @if (!$loop->last)
+                                                ,
+                                            @endif
+                                        @endforeach
+                                    @else
+                                        {{ $optionValue }}
+                                    @endif
+                                </td>
+                            </tr>
                             <tr>
                                 <th>Tên trường:</th>
                                 <td>{{ $row['name'] ?? '' }} </td>
                             </tr>
                             <tr>
-                                <th>Loại trường:</th>
+                                <th>Loại giá trị:</th>
                                 <td>{{ $row['type'] ?? '' }} </td>
                             </tr>
                             <tr>

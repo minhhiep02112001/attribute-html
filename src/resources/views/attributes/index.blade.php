@@ -20,9 +20,9 @@
                     <tr>
                         <th class="align-left">STT</th>
                         <th class="align-left">Tiêu đề</th>
-                        <th class="align-left">Option field</th>
-                        <th class="align-left">Tên trường</th>
                         <th class="align-left">Loại trường</th>
+                        <th class="align-left">Tên trường</th>
+                        <th class="align-left">Loại giá trị</th>
                         <th class="align-left">Module</th>
                         <th class="all text-center sorting_disabled">Thao tác</th>
                     </tr>
