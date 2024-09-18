@@ -64,7 +64,7 @@
                             <select name="{{ $isMultiple ? $name . '[]' : $name }}" class="{{ $class }}"
                                 data-module="{{ $dataModule }}" @if (!empty($isMultiple)) multiple @endif
                                 @if (!empty($isRequired)) required @endif>
-                                @foreach ($row[$name] as $k => $v)
+                                @foreach ($row[$name] ?? [] as $k => $v)
                                     <option value="{{ $v }}" selected>
                                         {{ $v }}</option>
                                 @endforeach
