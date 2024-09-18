@@ -70,7 +70,8 @@
                                 @endforeach
                             </select>
                         @else
-                            <select data-module="{{ $dataModule }}" class="{{ $class }}" name="{{ $name }}">
+                            <select data-module="{{ $dataModule }}" class="{{ $class }}" name="{{ $name }}"
+                                @if (!empty($isRequired)) required @endif>
                                 <option value="{{ $row[$name] ?? '' }}" selected="selected">
                                     {{ $row[$name] ?? '' }}
                                 </option>
